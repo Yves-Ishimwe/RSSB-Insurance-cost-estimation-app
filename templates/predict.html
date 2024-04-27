@@ -1,0 +1,76 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>Insurance Cost Estimation</title>
+		<style type="text/css">
+		body {
+		  color: black;
+		}
+
+		h2 {
+		  color: black;
+		}
+		p{
+			color:black;
+			text-align: justify;
+		}
+		.results{
+			color:blue;
+		}
+		.introdiv {
+			margin: auto;
+			height: 160px;
+			width: 60%;
+			background-color: lavender;
+			text-align: left;
+			padding: 8px;
+		}
+
+		.resultdiv {
+			margin: auto;
+			height: 160px;
+			width: 60%;
+			background-color: #fff;
+			text-align: left;
+			padding: 8px;
+		}
+		.center {
+		  margin: auto;
+		  width: 60%;
+		  height: 85%;
+		  border: 1px dashed #fff;
+		  padding: 15px;
+		  background-color: #fff;
+		}
+
+		</style>
+	</head>
+	<body>
+		<header>
+			<img src="/static/logo.png" alt="logo">
+		</header>
+		<div class="center">
+			<div class="introdiv">
+				<h2>Insurance Cost Estimation</h2>
+				<p>This is an application that can be used by both users or insurance companies to estimate the insurance cost based on different factors.</p>
+
+			</div>
+	
+
+			<div class="resultdiv">
+				<!--https://flask.palletsprojects.com/en/2.3.x/patterns/flashing/-->
+				<h2>Display Prediction Results</h2>
+                <p class="results"> Estimated Insurance: <span style="color:{{color_signal}};"> {{prediction}}</span><p></p>
+
+				{% with messages = get_flashed_messages() %}
+					  {% if messages %}
+						<p class="results">Estimated Insurance cost based on your input is: <span style="color:{{ messages[1] }};">{{ messages[0] }}</span><p>
+	
+					  {% endif %}
+					{% endwith %}
+
+			</div>
+		</div>
+	</body>
+</html>
